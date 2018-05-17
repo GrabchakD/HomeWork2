@@ -25,10 +25,23 @@ public class Task1 {
         Scanner sc = new Scanner(System.in);
         String words = sc.nextLine();
 
-        if (words.equals(new StringBuilder(words).reverse().toString())) {
+        if (checkPalindom(words)) {
             System.out.println(words + " is palindorme!");
         } else {
             System.out.println(words + " is not palindome!");
         }
+    }
+
+    private static boolean checkPalindom(String words) {
+        int i = words.length() - 1;
+        int j = 0;
+        while(i > j) {
+            if(words.charAt(i) != words.charAt(j)) {
+                return false;
+            }
+            i--;
+            j++;
+        }
+        return true;
     }
 }
